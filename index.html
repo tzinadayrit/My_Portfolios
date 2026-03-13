@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tzina Portfolio</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Logo -->
+  <h1 class="logo">My Portfolio</h1>
+
+  <!-- Profile Picture -->
+  <img src="tzina.png" alt="Profile Picture" class="profile-pic" id="profilePic">
+
+  <!-- Bio Section -->
+  <div class="bio-container" id="bioContainer">
+    <div class="bio">
+      <p>Hi, I’m <strong>Tzina N. Dayrit</strong>, a web developer passionate about creating clean, user-friendly interfaces.</p>
+      <p>Skilled in HTML, CSS, JavaScript, Git, and Excel, I focus on building interactive and responsive web applications that provide real value to users.</p>
+      <p>My goal is to continuously improve my technical and design skills while delivering professional, high-quality projects.</p>
+    </div>
+  </div>
+
+  <!-- Skills Section -->
+  <section id="skills" class="section">
+    <h2>Skills</h2>
+    <div class="skills-container" id="skillsContainer">
+      <div class="skill">
+        <p>HTML</p>
+        <div class="skill-bar"><div style="width:90%"></div></div>
+      </div>
+      <div class="skill">
+        <p>CSS</p>
+        <div class="skill-bar"><div style="width:85%"></div></div>
+      </div>
+      <div class="skill">
+        <p>JavaScript</p>
+        <div class="skill-bar"><div style="width:80%"></div></div>
+      </div>
+      <div class="skill">
+        <p>Git</p>
+        <div class="skill-bar"><div style="width:75%"></div></div>
+      </div>
+      <div class="skill">
+        <p>Excel</p>
+        <div class="skill-bar"><div style="width:85%"></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects" class="section">
+    <h2>Projects</h2>
+    <div class="projects-container">
+      <a href="project.html" class="project-card">
+        <img src="1.png" alt="Excel Project 1">
+        <h3>Asking the Right Questions</h3>
+        <p>Asking the right questions ensures data analysis is meaningful and solves the intended problem.</p>
+      </a>
+
+      <a href="project.html" class="project-card">
+        <img src="2.png" alt="Excel Project 2">
+        <h3>Demo File for Data Preparation and Cleaning</h3>
+        <p>Demo File for Data Cleaning: An example dataset used to practice fixing errors and organizing data.</p>
+      </a>
+    </div>
+  </section>
+
+  <!-- About & Contact Side by Side -->
+  <div class="info-container">
+    <section id="about" class="section">
+      <h2>About</h2>
+      <p>This portfolio showcases a collection of professional web development projects emphasizing clean design, user-friendly interfaces, and responsive layouts.</p>
+      <p>It demonstrates skills in modern web technologies like HTML, CSS, JavaScript, and Git. The goal is to highlight practical applications through interactive, well-structured projects that provide value and engaging user experiences.</p>
+    </section>
+
+    <section id="contact" class="section">
+      <h2>Contact</h2>
+      <p>Email: <a href="mailto:tzinadayrit4@example.com">tzinadayrit4@example.com</a></p>   
+         <p>Phone: +123-456-7890</p>
+      <p>LinkedIn: <a href="https://linkedin.com/in/tzina" target="_blank" rel="noopener noreferrer">linkedin.com/in/tzina</a></p>
+    </section>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-links">
+      <a href="#about" class="footer-btn">About</a>
+      <a href="#contact" class="footer-btn">Contact</a>
+      <a href="#skills" class="footer-btn">Skills</a>
+      <a href="#projects" class="footer-btn">Projects</a>
+    </div>
+    <div class="social-links">
+      <a href="https://github.com/tzinadayrit/my_portfolio.git" target="_blank">GitHub</a> |
+      <a href="https://linkedin.com/in/tzina" target="_blank">LinkedIn</a>
+    </div>
+    <p class="footer-text">&copy; 2026 Tzina N. Dayrit. All rights reserved.</p>
+  </footer>
+
+  <!-- JavaScript -->
+  <script>
+    // Toggle bio visibility
+    const profilePic = document.getElementById('profilePic');
+    const bioContainer = document.getElementById('bioContainer');
+    profilePic.addEventListener('click', () => {
+      bioContainer.classList.toggle('show');
+      profilePic.style.transform = bioContainer.classList.contains('show') ? 'scale(1.1)' : 'scale(1)';
+    });
+
+    // Smooth scroll for footer buttons
+    document.querySelectorAll('.footer-btn').forEach(btn => {
+      btn.addEventListener('click', e => {
+        e.preventDefault();
+        const target = document.querySelector(btn.getAttribute('href'));
+        if (target) target.scrollIntoView({ behavior: 'smooth' });
+      });
+    });
+
+    // Animate skill bars when scrolled into view
+    const skillsContainer = document.getElementById('skillsContainer');
+    const skillObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          skillsContainer.classList.add('animate');
+        }
+      });
+    }, { threshold: 0.5 });
+    skillObserver.observe(skillsContainer);
+  </script>
+
+</body>
+</html>
